@@ -1,0 +1,14 @@
+version: '3'
+services:
+  abiotic_factor:
+    container_name: abiotic_factor
+    image: ghcr.io/jaredseavyhodge/abiotic-factor:latest
+    ports:
+    - "7777:7777/udp"   # Game server port
+    - "27015:27015/udp" # Query port
+    environment:
+      - SERVER_NAME=Jared's Abiotic Server
+      - SERVER_PASSWORD=password
+    volumes:
+      - gamefiles:/gamefiles
+    restart: unless-stopped
